@@ -12,6 +12,12 @@ body{
   overflow: hidden;
   background: linear-gradient(135deg, #4AB1FF, #2D5CFE);
 }
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
 ::selection{
   color: #fff;
   background: #3C87FF;
