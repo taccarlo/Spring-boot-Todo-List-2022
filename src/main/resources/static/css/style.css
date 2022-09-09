@@ -1,5 +1,6 @@
 /* Import Google Font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 *{
   margin: 0;
   padding: 0;
@@ -12,12 +13,10 @@ body{
   overflow: hidden;
   background: linear-gradient(135deg, #4AB1FF, #2D5CFE);
 }
-
 a{
   text-decoration: none;
   color: inherit;
 }
-
 ::selection{
   color: #fff;
   background: #3C87FF;
@@ -57,8 +56,12 @@ a{
 .task-input input::placeholder{
   color: #bfbfbf;
 }
-.controls, li{
+.controls{
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+li{
   align-items: center;
   justify-content: space-between;
 }
@@ -133,7 +136,6 @@ a{
   padding-bottom: 0;
 }
 .task-box .task label{
-  display: flex;
   align-items: flex-start;
 }
 .task label input{
@@ -142,7 +144,7 @@ a{
 }
 .task label p{
   user-select: none;
-  margin-left: 12px;
+  margin-left: 6px;
   word-wrap: break-word;
 }
 .task label p.checked{
