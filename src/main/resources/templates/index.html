@@ -7,6 +7,28 @@
     <title>Todo List App</title>
     <link rel="stylesheet" href="./css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+				
+			$.ajax({
+				url : '/api/todos',
+				method : 'get',
+				success : function(data) {
+					
+					$('.task-box').html("");
+					
+					for(var i = data.length - 1; i >= 0; i--) {
+						
+						$('.task-box').append('<div class="grid-item"><h4>'+data[i].title+'</h4><p>' + data[i].subtitle + '</p></div>');
+					}
+						
+				}
+			});
+			
+		});
+	</script>
   </head>
   
   <body>
@@ -21,6 +43,8 @@
       </div>
       <ul class="task-box"></ul>
     </div>
+    
   </body>
+  
   
 </html>
