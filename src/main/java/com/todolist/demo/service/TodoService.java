@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.todolist.demo.model.Todo;
 
 
-@Service("mainTodoService")
+@Service()
 public class TodoService implements ITodoService{
 
 	private List<Todo> list = new ArrayList<Todo>();
