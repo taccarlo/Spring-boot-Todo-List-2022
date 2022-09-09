@@ -5,26 +5,61 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.todolist.demo.model.Todo;
 
-/**
- * Service indicate that the class is used to hold the business logic
- */
+
 @Service("mainTodoService")
 public class TodoService implements ITodoService{
 
 	private List<Todo> list = new ArrayList<Todo>();
+	private int lastId;
+	
+	public TodoService() {
+		list.add(new Todo(1,"./img/01.png"));
+		list.add(new Todo(2,"./img/02.png"));
+		list.add(new Todo(3,"./img/03.png"));
+		lastId = 3;
+	}
+
 	@Override
-	public Iterable<Todo> getAll() {
-		// TODO Auto-generated method stub
+	public Iterable<Todo> getAll(){
 		return list;
 	}
 
 	@Override
-	public Optional<Todo> getById(int id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public Todo create(@RequestBody Todo item) {
+		lastId++;
+		item.setId(lastId);
+		list.add(item);
+		return item;
 	}
 
+	@Override
+	public Optional<Todo> getById(int id) {
+		Optional<Todo> todo = list.stream().filter(item->item.getId()==id).findFirst();
+		return todo;
+	}
+
+	@Override
+	public Optional<Todo> update(int id, Todo todo) {
+		Optional<Todo> foundItem = list.stream().filter(item->item.getId()==id).findFirst();
+		if(foundItem.isEmpty()) {
+			return Optional.empty();
+		}
+		foundItem.get().setUrl(todo.getUrl());
+		return foundItem;
+	}
+
+	@Override
+	public boolean delete(int id) {
+		Optional<Todo> foundItem = list.stream().filter(item->item.getId()==id).findFirst();
+		if(foundItem.isEmpty()) {
+			return false;
+		}
+		list.remove(foundItem.get());
+		return true;
+	}
+	
 }

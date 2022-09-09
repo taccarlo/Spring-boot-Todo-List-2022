@@ -16,11 +16,15 @@ import java.util.Optional;
 /**
  * This class manages the API used by the user in the main view.
  * For this class are needed to add the Starters: [Spring web]
- * RestController: The RestController is a specialized version of the controller. (Spring web)
- * Autowired : allows to resolve and inject collaborating beans into our bean, introduced to perform the annotations-driven Dependency Injection.
- * Dependency Injection : a design pattern in which an object or function receive objects or functions that it depends on, in order to separate the concerns of constructing objects and using them.
- * Bean :  are classes that encapsulate one or more objects into a single standardized object.
- * Qualifier : indicate which bean needs to be injected
+ * <ul>
+ * <li>RestController: The RestController is a specialized version of the controller. (Spring web)</li>
+ * <li>Autowired : allows to resolve and inject collaborating beans into our bean, introduced to perform the annotations-driven Dependency Injection.</li>
+ * <li>Dependency Injection : a design pattern in which an object or function receive objects or functions that it depends on, in order to separate the concerns of constructing objects and using them.</li>
+ * <li>Bean :  are classes that encapsulate one or more objects into a single standardized object.</li>
+ * <li>Qualifier : indicate which bean needs to be injected</li>
+ * </ul>
+ * <p>To test on postman or on browser: http://localhost:8080/api/todos </p>
+ * 
  * @version 0.0.1
  * @author Carlo Tacchella
  * @since 22/09/07

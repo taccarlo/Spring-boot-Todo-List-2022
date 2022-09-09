@@ -12,10 +12,10 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping("/demo")
+	@RequestMapping("/presentation")
 	@ResponseBody
 	public String demo() {
-		return "demo page";
+		return "<h1>Spring Boot Course 2022</h1><p>Todo List Simple Application</p>";
 	}
 }
 
