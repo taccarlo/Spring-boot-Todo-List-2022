@@ -9,22 +9,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.todolist.demo.model.Todo;
 
-
 @Service()
-public class TodoService implements ITodoService{
+public class TodoService implements ITodoService {
 
 	private List<Todo> list = new ArrayList<Todo>();
 	private int lastId;
-	
+
 	public TodoService() {
-		list.add(new Todo(1,"./img/01.png"));
-		list.add(new Todo(2,"./img/02.png"));
-		list.add(new Todo(3,"./img/03.png"));
+		list.add(new Todo(1, "titolo 1", "todo 1"));
+		list.add(new Todo(2, "titolo 2", "todo 2"));
+		list.add(new Todo(3, "titolo 3", "todo 3"));
 		lastId = 3;
 	}
 
 	@Override
-	public Iterable<Todo> getAll(){
+	public Iterable<Todo> getAll() {
 		return list;
 	}
 
@@ -38,28 +37,29 @@ public class TodoService implements ITodoService{
 
 	@Override
 	public Optional<Todo> getById(int id) {
-		Optional<Todo> todo = list.stream().filter(item->item.getId()==id).findFirst();
+		Optional<Todo> todo = list.stream().filter(item -> item.getId() == id).findFirst();
 		return todo;
 	}
 
 	@Override
 	public Optional<Todo> update(int id, Todo todo) {
-		Optional<Todo> foundItem = list.stream().filter(item->item.getId()==id).findFirst();
-		if(foundItem.isEmpty()) {
+		Optional<Todo> foundItem = list.stream().filter(item -> item.getId() == id).findFirst();
+		if (foundItem.isEmpty()) {
 			return Optional.empty();
 		}
-		foundItem.get().setUrl(todo.getUrl());
+		foundItem.get().setTitle(todo.getTitle());
+		foundItem.get().setSubtitle(todo.getSubtitle());
 		return foundItem;
 	}
 
 	@Override
 	public boolean delete(int id) {
-		Optional<Todo> foundItem = list.stream().filter(item->item.getId()==id).findFirst();
-		if(foundItem.isEmpty()) {
+		Optional<Todo> foundItem = list.stream().filter(item -> item.getId() == id).findFirst();
+		if (foundItem.isEmpty()) {
 			return false;
 		}
 		list.remove(foundItem.get());
 		return true;
 	}
-	
+
 }

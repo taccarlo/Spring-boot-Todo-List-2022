@@ -23,15 +23,17 @@ public class Todo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String url;
+	private String title;
+	private String subtitle;
 	
 	public Todo() {
 		
 	}
 	
-	public Todo(int id, String url) {
+	public Todo(int id, String title, String subtitle) {
 		this.id = id;
-		this.url = url;
+		this.setTitle(title);
+		this.setSubtitle(subtitle);
 	}
 	
 	public int getId() {
@@ -41,12 +43,20 @@ public class Todo {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public String getUrl() {
-		return url;
+
+	public String getTitle() {
+		return title;
 	}
-	
-	public void setUrl(String url) {
-		this.url = url;
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getSubtitle() {
+		return subtitle;
+	}
+
+	public void setSubtitle(String subtitle) {
+		this.subtitle = subtitle;
 	}
 }

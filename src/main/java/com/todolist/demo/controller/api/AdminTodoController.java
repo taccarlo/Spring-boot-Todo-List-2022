@@ -50,7 +50,8 @@ public class AdminTodoController{
 		if(foundTodo.isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "item not found");
 		}
-		foundTodo.get().setUrl(todo.getUrl());
+		foundTodo.get().setTitle(todo.getTitle());
+		foundTodo.get().setSubtitle(todo.getSubtitle());
 		return foundTodo.get();
 	}
 	

@@ -22,8 +22,8 @@ public class DbTodoService  implements ITodoService {
 	}
 
 	@Override
-	public Todo create(@RequestBody Todo photo) {
-		return todoRepository.save(photo);
+	public Todo create(@RequestBody Todo todo) {
+		return todoRepository.save(todo);
 	}
 
 	@Override
@@ -32,24 +32,25 @@ public class DbTodoService  implements ITodoService {
 	}
 
 	@Override
-	public Optional<Todo> update(int id, Todo photo) {
-		Optional<Todo> foundPhoto = todoRepository.findById(id);
-		if(foundPhoto.isEmpty()) {
+	public Optional<Todo> update(int id, Todo todo) {
+		Optional<Todo> foundTodo = todoRepository.findById(id);
+		if(foundTodo.isEmpty()) {
 			return Optional.empty();
 		}
-		foundPhoto.get().setUrl(photo.getUrl());
-		todoRepository.save(foundPhoto.get());
-		return foundPhoto;
+		foundTodo.get().setTitle(todo.getTitle());
+		foundTodo.get().setSubtitle(todo.getSubtitle());
+		todoRepository.save(foundTodo.get());
+		return foundTodo;
 	}
 
 	@Override
 	public boolean delete(int id) {
 
-		Optional<Todo> foundPhoto = todoRepository.findById(id);
-		if(foundPhoto.isEmpty()) {
+		Optional<Todo> foundTodo = todoRepository.findById(id);
+		if(foundTodo.isEmpty()) {
 			return false;
 		}
-		todoRepository.delete(foundPhoto.get());
+		todoRepository.delete(foundTodo.get());
 		return true;
 	}
 	
