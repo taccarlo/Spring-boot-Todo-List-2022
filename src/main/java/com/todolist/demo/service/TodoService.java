@@ -47,8 +47,13 @@ public class TodoService implements ITodoService {
 		if (foundItem.isEmpty()) {
 			return Optional.empty();
 		}
-		foundItem.get().setTitle(todo.getTitle());
-		foundItem.get().setSubtitle(todo.getSubtitle());
+
+		if(todo.getTitle()!=null)
+			foundItem.get().setTitle(todo.getTitle());
+
+		if(todo.getSubtitle()!=null)
+			foundItem.get().setSubtitle(todo.getSubtitle());
+		
 		return foundItem;
 	}
 

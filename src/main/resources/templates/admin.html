@@ -15,7 +15,38 @@
 		
 		
 	<script type="text/javascript">
-	
+
+		function createTask(){
+
+			var newTask = prompt('What is the new task?');
+			
+			if (newTask === null) {
+				
+			} else {
+				
+				$.ajax({
+					url : '/admin/api/todos',
+					method : 'post',
+					contentType : 'application/json',
+					data : JSON.stringify({
+						title : 'Task',
+						subtitle : newTask
+					}),
+					success : function(data) {
+						
+						loadItems();
+						
+						var myToast = Toastify({
+							text: "Task added successfully",
+							duration: 2000
+						});
+
+						myToast.showToast();								
+					}
+				});            		
+			}	
+		}
+		
 		function editTitle(id) {
 			
 			var newText = prompt('Edit current title');
@@ -149,10 +180,7 @@
 		}
 
 		$(document).ready(function() {
-				
-			
 			loadItems();
-			
 			
 		});
 	</script>
@@ -167,6 +195,7 @@
 		  </span>
           <span class="active">Admin</span>
         </div>
+        <button class="add-task" onClick="createTask()">Add Task</button>
       </div>
       <ul class="task-box overflow"></ul>
     </div>
