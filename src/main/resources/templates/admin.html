@@ -16,12 +16,84 @@
 		
 	<script type="text/javascript">
 	
-		function editTitle(Id) {
-			var newUrl = prompt('title');
+		function editTitle(id) {
+			
+			var newText = prompt('Edit current title');
+			
+			if (newText === null) {
+				
+			} else if (newText === '') {
+				
+				alert('Value is required');
+				
+			} else if (newText === '') {
+				
+				alert('Value is required');
+				
+			} else {
+				
+				$.ajax({
+					url : '/admin/api/todos/' + id,
+					method : 'put',
+					contentType : 'application/json',
+					data : JSON.stringify({
+						title : newText,
+						subtitle: null
+					}),
+					success : function(data) {
+						
+	
+						loadItems();	
+						var myToast = Toastify({
+							text: "Task modified successfully",
+							duration: 2000
+						});
+
+						myToast.showToast();								
+					}
+				});            		
+			}
+
+			
 		}
 		
-		function editSubtitle(Id) {
-			var newUrl = prompt('subtitle');
+		function editSubtitle(id) {
+
+			var newText = prompt('Edit current title');
+			
+			if (newText === null) {
+				
+			} else if (newText === '') {
+				
+				alert('Value is required');
+				
+			} else if (newText === '') {
+				
+				alert('Value is required');
+				
+			} else {
+				
+				$.ajax({
+					url : '/admin/api/todos/' + id,
+					method : 'put',
+					contentType : 'application/json',
+					data : JSON.stringify({
+						title: null,
+						subtitle : newText
+					}),
+					success : function(data) {
+						
+	
+						loadItems();	
+						var myToast = Toastify({
+							text: "Task modified successfully",
+							duration: 2000
+						});
+
+						myToast.showToast();								
+					}
+				});            		
+			}
 		}
 		
 		function deleteTask(id) {
@@ -54,13 +126,13 @@
 						$('.task-box').append(`<li class="task">
                             <label> 
 				                <div class="grid_two_btn">
-				                	<div> <h4>${data[i].title} prova prova prova prova prova prova prova prova prova prova prova prova prova prova prova</h4></div>
+				                	<div> <h4>${data[i].title}</h4></div>
 				                	<div class="grid_el"><i class="fa fa-pencil" aria-hidden="true" onclick='editTitle(${data[i].id})'></i></div>
 				                	<div class="grid_el"><i class="fa fa-trash" aria-hidden="true"  onclick='deleteTask(${data[i].id})' ></i></div>
 				                </div>
 				                
 				                <div class="grid_one_btn">
-				                	<div><p>${data[i].subtitle} prova prova prova prova prova prova prova prova prova prova prova prova prova prova prova</p></div>
+				                	<div><p>${data[i].subtitle}</p></div>
 				                	<div class="grid_el"><i class="fa fa-pencil" aria-hidden="true" onclick='editSubtitle(${data[i].id})'></i></div>
 				                </div>
 				                

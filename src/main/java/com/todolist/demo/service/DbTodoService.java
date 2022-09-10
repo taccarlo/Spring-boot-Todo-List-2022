@@ -37,8 +37,10 @@ public class DbTodoService  implements ITodoService {
 		if(foundTodo.isEmpty()) {
 			return Optional.empty();
 		}
-		foundTodo.get().setTitle(todo.getTitle());
-		foundTodo.get().setSubtitle(todo.getSubtitle());
+		if(todo.getTitle()!=null)
+			foundTodo.get().setTitle(todo.getTitle());
+		if(todo.getSubtitle()!=null)
+			foundTodo.get().setSubtitle(todo.getSubtitle());
 		todoRepository.save(foundTodo.get());
 		return foundTodo;
 	}

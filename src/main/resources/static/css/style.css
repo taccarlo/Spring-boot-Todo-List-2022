@@ -95,6 +95,9 @@ li{
   align-items: center;
   justify-content: space-between;
 }
+h4{
+	margin-bottom:9px;
+}
 .controls{
   padding: 18px 25px;
   border-bottom: 1px solid #ccc;
