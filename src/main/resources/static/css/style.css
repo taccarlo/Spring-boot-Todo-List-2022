@@ -13,14 +13,43 @@ body{
   overflow: hidden;
   background: linear-gradient(135deg, #4AB1FF, #2D5CFE);
 }
+
 a{
   text-decoration: none;
   color: inherit;
 }
+.grid_el {
+	
+  text-align: center;
+}
+.grid_two_btn   {
+	
+	display: grid;
+	grid-template-columns: 4fr 1fr 1fr;
+	
+  align-items: center;
+  
+  justify-content: center;
+  
+  align-self: center;
+  justify-self: center;
+  
+}  
+
+.grid_one_btn {
+	display: grid;
+	grid-template-columns: 5fr 1fr;
+	
+  align-items: center;
+  
+  justify-content: center;
+}
+
 ::selection{
   color: #fff;
   background: #3C87FF;
 }
+
 .wrapper{
   max-width: 405px;
   padding: 28px 0 30px;
@@ -29,6 +58,7 @@ a{
   border-radius: 7px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
+
 .task-input{
   height: 52px;
   padding: 0 25px;
@@ -144,7 +174,6 @@ li{
 }
 .task label p{
   user-select: none;
-  margin-left: 6px;
   word-wrap: break-word;
 }
 .task label p.checked{

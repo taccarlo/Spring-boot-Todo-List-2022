@@ -44,9 +44,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
 
-		<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>		
-		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">-->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+	<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>		
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
 		
 		
 	<script type="text/javascript">
@@ -54,6 +54,15 @@
 
 		$(document).ready(function() {
 				
+			/*
+			
+				               <!-- <td class="edit pointer" data-id="${data[i].id}" data-url="${data[i].title}">
+				                	<i class="fa fa-pencil" aria-hidden="true"></i>
+				                </td>
+				                <td class="delete pointer" data-id="${data[i].id}">
+				                	<i class="fa fa-trash" aria-hidden="true"></i>
+				                </td>-->
+			*/
 			$.ajax({
 				url : '/api/todos',
 				method : 'get',
@@ -64,27 +73,22 @@
 					for(var i = data.length - 1; i >= 0; i--) {
 						
 						$('.task-box').append(`<li class="task">
-                            <label>
-                                <h4>${data[i].title}</h4>
-                                <p>${data[i].subtitle} prova prova prova prova prova prova prova prova prova prova prova prova prova prova prova</p>
+                            <label> 
+				                <div class="grid_two_btn">
+				                	<div> <h4>${data[i].title} prova prova prova prova prova prova prova prova prova prova prova prova prova prova prova</h4></div>
+				                	<div class="grid_el"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+				                	<div class="grid_el"><i class="fa fa-trash" aria-hidden="true"></i></div>
+				                </div>
 				                
-				                <table>
-				                
-				<tbody>
-				                <tr>
-				                <td class="edit pointer" data-id="${data[i].id}" data-url="${data[i].title}">
-				                	<i class="fa fa-pencil" aria-hidden="true"></i>
-				                </td>
-				                <td class="delete pointer" data-id="${data[i].id}">
-				                	<i class="fa fa-trash" aria-hidden="true"></i>
-				                </td>
-				                </tr>
-				                
-				</tbody>
-				                </table>
+				                <div class="grid_one_btn">
+				                	<div><p>${data[i].subtitle} prova prova prova prova prova prova prova prova prova prova prova prova prova prova prova</p></div>
+				                	<div class="grid_el"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+				                </div>
 				                
                             </label>
-                        </li>`);
+				                
+                        </li>
+                        `);
                         
 					}
 						
