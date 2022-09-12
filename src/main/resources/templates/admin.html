@@ -157,14 +157,15 @@
 						$('.task-box').append(`<li class="task">
                             <label> 
 				                <div class="grid_two_btn">
-				                	<div> <h4>${data[i].title}</h4></div>
 				                	<div class="grid_el"><i class="fa fa-pencil" aria-hidden="true" onclick='editTitle(${data[i].id})'></i></div>
+				                	<div> <h4>${data[i].title}</h4></div>
 				                	<div class="grid_el"><i class="fa fa-trash" aria-hidden="true"  onclick='deleteTask(${data[i].id})' ></i></div>
 				                </div>
 				                
 				                <div class="grid_one_btn">
-				                	<div><p>${data[i].subtitle}</p></div>
 				                	<div class="grid_el"><i class="fa fa-pencil" aria-hidden="true" onclick='editSubtitle(${data[i].id})'></i></div>
+				                	<div><p>${data[i].subtitle}</p></div>
+				                	
 				                </div>
 				                
                             </label>
