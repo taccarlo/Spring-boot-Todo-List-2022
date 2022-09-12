@@ -23,3 +23,20 @@ The project is composed in two parts: the main view read-only and the admin view
 ![Layers](readme_screenshot_1.png)
 
 ![Layers](readme_screenshot_2.png)
+
+### Topics covered on this project
+
+- Spring Boot
+
+- Spring MVC
+
+- Spring Data JPA
+
+### Author
+
+Carlo Tacchella
+
+### Creation Date
+
+ 22/09/07
+ 
